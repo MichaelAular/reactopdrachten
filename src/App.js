@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import * as React from "react";
+import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
+import Opdracht2 from "./pages/Opdracht2";
+import Opdracht3 from "./pages/Opdracht3";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="opdracht2" element={<Opdracht2 />} />
+        <Route path="opdracht3" element={<Opdracht3 />} />
+      </Routes>
     </div>
+  );
+}
+
+function Home() {
+  return (
+    <>
+      <main>
+        <h2>React Opdrachten</h2>
+      </main>
+      <nav>
+        <Link to="/opdracht2">Opdracht 1 & 2</Link><br></br>
+        <Link to="/opdracht3">Opdracht 3</Link>
+      </nav>
+    </>
   );
 }
 
