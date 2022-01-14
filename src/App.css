@@ -1,15 +1,50 @@
-.app {
+.App {
   background-color: #282c34;
+  color: white;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+a:link {
+  text-decoration: none;
   color: white;
 }
 
+a:visited {
+  text-decoration: none;
+  color: white;
+}
 
-li {
-  list-style-type: none;
+a:hover {
+  text-decoration: none;
+  color: rgb(115, 245, 143);
+}
+
+a:active {
+  text-decoration: none;
+  color: rgb(115, 245, 143);
+}
+
+.Navlist {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  gap:80px;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  top: 0;
+  font-size: 20px;
+}
+
+.green {
+  color: rgb(115, 245, 143);
+  list-style: none;
+}
+
+h1 {
+  font-size: 60px;
 }

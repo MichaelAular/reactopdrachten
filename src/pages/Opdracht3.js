@@ -24,7 +24,7 @@ export default function Opdracht3() {
       <button onClick={handleInput}>Submit Name</button>
 
       <h4>Input met key</h4>
-      <ul>
+      <ul className="green">
         {names.map(item =>
         <li key={item.key}>{item.value}</li>)}
       </ul>
