@@ -30,7 +30,7 @@ const Opdracht4 = () => {
   return (
     <main>
       <h2> The To-Do-List</h2>
-      <input id="inputTask" placeholder="Things I need to Do" />
+      <input id="inputTask" placeholder="Shit I need to Do" />
       <button onClick={taskInputHandler}>Submit To Do!</button>
 
       <ul className="list">
