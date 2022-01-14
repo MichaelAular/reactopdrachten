@@ -3,7 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function Opdracht3() {
   const [names, setNames] = useState([]);
-  function handleInput() {
+
+  function inputHandler() {
     let input = document.querySelector("input");
     setNames((prevState) => {
       let state = [...prevState];
@@ -18,17 +19,14 @@ export default function Opdracht3() {
 
   return (
     <div className="opdracht3">
-      <h2>Opdracht 3</h2>
+      <h2>Using Keys</h2>
+      <input id="input" placeholder="Input with Key" />
+      <button onClick={inputHandler}>Submit Name</button>
 
-      <input id="input" />
-      <button onClick={handleInput}>Submit Name</button>
-
-      <h4>Input met key</h4>
-      <ul className="green">
+      <ul className="list">
         {names.map(item =>
         <li key={item.key}>{item.value}</li>)}
       </ul>
-
     </div>
   )
 }
