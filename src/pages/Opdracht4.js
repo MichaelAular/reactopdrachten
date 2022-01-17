@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { FaTrashAlt } from 'react-icons/fa'
 import { FaCheck } from 'react-icons/fa'
@@ -15,6 +16,9 @@ const Opdracht4 = () => {
         key: uuidv4(),
       };
       state.unshift(item);
+      console.log(state.length)
+      console.log(state)
+      document.title = `You've got ${state.length} task(s) to do!`;
       return state;
     });
   }
@@ -24,7 +28,9 @@ const Opdracht4 = () => {
   }
 
   function CheckTask() {
-    console.log('Check')
+    const check = document.querySelector(item.key)
+    check.classList.add('checked')
+    check.classList.remove('unchecked')
 }
 
   return (
@@ -36,7 +42,7 @@ const Opdracht4 = () => {
       <ul className="list">
         {tasks.map((item) =>
           <li key={item.key}>
-              <FaCheck className="icons ckeck unchecked" role="button" onClick={CheckTask}/>
+              <FaCheck className="icons check unchecked" role="button" onClick={CheckTask}/>
               {item.value}
               <FaTrashAlt className="icons delete" role="button" onClick={ClearTask}/>
           </li>)}

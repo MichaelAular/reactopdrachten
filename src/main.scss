@@ -81,12 +81,16 @@
     color: gray;
     :hover{
       color: rgb(115, 245, 143);
+    }
   }
+
+  .checked {
+    color: green;
   }
 
   .delete {
     color: gray;
     :hover{
       color: red;
-  }
+    }
   }

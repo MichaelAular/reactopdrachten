@@ -98,6 +98,10 @@ button {
   color: #73f58f;
 }
 
+.checked {
+  color: green;
+}
+
 .delete {
   color: gray;
 }
