@@ -1,50 +1,55 @@
 import { useState } from "react";
-import { useEffect } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { FaTrashAlt } from 'react-icons/fa'
 import { FaCheck } from 'react-icons/fa'
+import { useEffect } from "react/cjs/react.development";
 
 const Opdracht4 = () => {
   const [tasks, setTasks] = useState([]);
+  const [userInput, setUserInput] = useState('');
 
-  function taskInputHandler() {
-    let input = document.querySelector("input");
-    setTasks((prevState) => {
-      let state = [...prevState];
-      const item = {
-        value: input.value,
-        key: uuidv4(),
-      };
-      state.unshift(item);
-      console.log(state.length)
-      console.log(state)
-      document.title = `You've got ${state.length} task(s) to do!`;
-      return state;
-    });
+  const addTask = () => {
+    const newTask = {
+      id: tasks.length + 1,
+      key: uuidv4(),
+      task: userInput,
+      done: false
+    };
+    setTasks([ newTask, ...tasks]);
+    console.log(newTask)
   }
+
+  const changeHandler = (e) => {
+        setUserInput(e.target.value)
+  }
+
+  useEffect (() => {
+    document.title = `You've got ${tasks.length} task(s) to do!`;
+  })
 
   function ClearTask() {
       console.log('Clear')
   }
 
   function CheckTask() {
-    const check = document.querySelector(item.key)
-    check.classList.add('checked')
-    check.classList.remove('unchecked')
+    console.log('check');
+    const check = document.querySelector('.check');
+    check.classList.add('checked');
+    check.classList.remove('unchecked');
 }
 
   return (
     <main>
       <h2> The To-Do-List</h2>
-      <input id="inputTask" placeholder="Shit I need to Do" />
-      <button onClick={taskInputHandler}>Submit To Do!</button>
+      <input id="inputTask" onChange={changeHandler} placeholder="Things I Need To Do" />
+      <button onClick={addTask}>Submit To Do!</button>
 
       <ul className="list">
         {tasks.map((item) =>
-          <li key={item.key}>
-              <FaCheck className="icons check unchecked" role="button" onClick={CheckTask}/>
-              {item.value}
-              <FaTrashAlt className="icons delete" role="button" onClick={ClearTask}/>
+          <li key={item.key} status={item.status}>
+              <FaCheck className="icons check unchecked" id={uuidv4()} role="button" onClick={CheckTask}/>
+              {item.task}
+              <FaTrashAlt className="icons delete" key={item.key} role="button" onClick={ClearTask}/>
           </li>)}
       </ul>
     </main>
