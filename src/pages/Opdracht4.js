@@ -7,7 +7,6 @@ import { useEffect } from "react/cjs/react.development";
 const Opdracht4 = () => {
   const [tasks, setTasks] = useState([]);
   const [userInput, setUserInput] = useState('');
-
   const addTask = () => {
     const newTask = {
       id: tasks.length + 1,
@@ -33,21 +32,20 @@ const Opdracht4 = () => {
 
   function CheckTask() {
     console.log('check');
-    const check = document.querySelector('.check');
+    const check = document.querySelector('.checked');
     check.classList.add('checked');
     check.classList.remove('unchecked');
-}
+  }
 
   return (
     <main>
       <h2> The To-Do-List</h2>
       <input id="inputTask" onChange={changeHandler} placeholder="Things I Need To Do" />
       <button onClick={addTask}>Submit To Do!</button>
-
       <ul className="list">
         {tasks.map((item) =>
           <li key={item.key} status={item.status}>
-              <FaCheck className="icons check unchecked" id={uuidv4()} role="button" onClick={CheckTask}/>
+              <FaCheck className="icons unchecked" id={uuidv4()} role="button" onClick={CheckTask}/>
               {item.task}
               <FaTrashAlt className="icons delete" key={item.key} role="button" onClick={ClearTask}/>
           </li>)}
